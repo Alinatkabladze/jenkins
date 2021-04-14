@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build Starts'
-        sh 'mvn clean install -Dlicense.skip=true'
+        sh 'mvn clean install'
         echo 'Build ends'
       }
     }
