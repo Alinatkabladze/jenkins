@@ -1,5 +1,12 @@
+import org.junit.Assert;
+import org.junit.Test;
+
 public class EnvVar {
-    public static void main(String[] args) {
-        System.out.println(System.getenv());
+
+@Test
+    public void validateSysVar() {
+
+    Assert.assertEquals(System.getenv("USERDOMAIN_ROAMINGPROFILE"),"DESKTOP-IJJ0T75");
+       
     }
 }
