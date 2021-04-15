@@ -24,7 +24,11 @@ pipeline {
   tools {
     maven 'Maven3'
   }
-  triggers {
-    pollSCM('* * * * *')
+  post {
+    always {
+      echo 'I will always say Hello again!'
+      emailext(body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} More info at: ${env.BUILD_URL}", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}")
+    }
+
   }
 }
