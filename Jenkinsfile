@@ -26,7 +26,8 @@ pipeline {
   }
   post {
     always {
-      mail(to: 'jenkinsbootcamp@gmail.com', subject: "Status of pipeline: ${currentBuild.fullDisplayName}", body: "${env.BUILD_URL} has result ${currentBuild.result}")
+      echo 'I will always say Hello again!'
+      emailext(body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test')
     }
 
   }
