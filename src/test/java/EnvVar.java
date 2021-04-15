@@ -7,6 +7,6 @@ public class EnvVar {
     public void validateSysVar() {
 
     Assert.assertEquals(System.getenv("USERDOMAIN_ROAMINGPROFILE"),"DESKTOP-IJJ0T75");
-       
+
     }
 }
