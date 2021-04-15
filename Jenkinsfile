@@ -2,10 +2,21 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Build Starts'
-        bat 'mvn clean compile test'
-        echo 'Build ends'
+      parallel {
+        stage('Functional Test') {
+          steps {
+            echo 'Build Starts'
+            bat 'mvn clean compile test'
+            echo 'Build ends'
+          }
+        }
+
+        stage('Performance Test') {
+          steps {
+            bat 'mvn clean compile test'
+          }
+        }
+
       }
     }
 
