@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'Pipeline has started!'
-        bat 'mvn --version'
+        bat 'mvn clean compile test'
         echo 'Pipeline has ended!'
       }
     }
