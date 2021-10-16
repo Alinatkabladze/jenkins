@@ -8,6 +8,7 @@ pipeline {
             echo 'Pipeline has started!'
             bat 'mvn clean compile test'
             echo 'Pipeline has ended!'
+            echo 'BootCamp2021'
           }
         }
 
